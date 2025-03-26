@@ -1,0 +1,3 @@
+# Ignore IDE/editor configuration files
+.idea/
+.vscode/

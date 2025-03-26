@@ -1,0 +1,17 @@
+# Ignore the Dockerfile
+Dockerfile
+
+# Ignore documentation and license files
+LICENSE
+README.md
+
+# Ignore the build scripts
+scripts/
+
+# Ignore version control files
+.git/
+.gitignore
+
+# Ignore IDE/editor configuration files
+.idea/
+.vscode/
