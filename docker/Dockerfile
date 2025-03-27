@@ -12,16 +12,16 @@ ENV CFLAGS="-Wno-pointer-sign -Wno-cpp -Wno-format-truncation"
 RUN apk update && apk add build-base mailcap openssl-dev
 
 # Download and extract the source code
-RUN wget https://github.com/ourway/webfsd/archive/refs/tags/$WEBFS_VERSION.tar.gz -O - | tar xzf -
+RUN wget https://github.com/ourway/webfsd/archive/refs/tags/$WEBFSD_VERSION.tar.gz -O - | tar xzf -
 
 # Replace <sys/signal.h> with <signal.h> to fix warnings
-RUN sed -i 's|<sys/signal.h>|<signal.h>|g' webfsd-$WEBFS_VERSION/webfsd.c
+RUN sed -i 's|<sys/signal.h>|<signal.h>|g' webfsd-$WEBFSD_VERSION/webfsd.c
 
 #  Build the application
-RUN cd webfsd-$WEBFS_VERSION \
+RUN cd webfsd-$WEBFSD_VERSION \
     && make install \
     && cd .. \
-    && rm -r webfsd-$WEBFS_VERSION
+    && rm -r webfsd-$WEBFSD_VERSION
 
 FROM alpine
 
