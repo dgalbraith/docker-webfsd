@@ -1,10 +1,10 @@
 #!/bin/bash -eu
 
-WEBFS_VERSION="1.21"
-WEBFS_PORT="8080"
-WEBFS_HOSTING_DIR="/srv"
+WEBFSD_VERSION="1.21"
+WEBFSD_PORT="8080"
+WEBFSD_HOSTING_DIR="/srv"
 
-docker build -t webfs:$WEBFS_VERSION -t webfs:latest \
-             --build-arg WEBFS_VERSION=$WEBFS_VERSION \
-             --build-arg WEBFS_PORT=$WEBFS_PORT \
-             --build-arg WEBFS_HOSTING_DIR=$WEBFS_HOSTING_DIR
+docker build -t webfsd:$WEBFSD_VERSION -t webfsd:latest \
+             --build-arg WEBFSD_VERSION=$WEBFSD_VERSION \
+             --build-arg WEBFSD_PORT=$WEBFSD_PORT \
+             --build-arg WEBFSD_HOSTING_DIR=$WEBFSD_HOSTING_DIR .

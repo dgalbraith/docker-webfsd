@@ -21,10 +21,10 @@ cd docker
 Alternatively, you can build the image manually:
 
 ```bash
-docker build -t webfs:1.21 -t webfs:latest \
-    --build-arg WEBFS_VERSION=1.21 \
-    --build-arg WEBFS_PORT=8080 \
-    --build-arg WEBFS_HOSTING_DIR=/srv \
+docker build -t webfsd:1.21 -t webfsd:latest \
+    --build-arg WEBFSD_VERSION=1.21 \
+    --build-arg WEBFSD_PORT=8080 \
+    --build-arg WEBFSD_HOSTING_DIR=/srv \
     ./docker
 ```
 
@@ -33,7 +33,7 @@ docker build -t webfs:1.21 -t webfs:latest \
 To run the container and serve files from a directory on your host machine:
 
 ```bash
-docker run -d -p 8080:8080 -v /path/to/your/files:/srv webfs:1.21
+docker run -d -p 8080:8080 -v /path/to/your/files:/srv webfsd:1.21
 ```
 
 * Replace `/path/to/your/files` with the path to the directory you want to serve
@@ -42,10 +42,11 @@ docker run -d -p 8080:8080 -v /path/to/your/files:/srv webfs:1.21
 ### Customizing the Port and Hosting Directory
 You can customize the port and hosting directory by passing the appropriate arguments when building the image or running the container.
 
-For example, to use port `9090` and serve files from `/var/www`:
+For example, to use port `9090` and serve files your home directory from `/var/www`:
 
 ```bash
-docker run -d -p 9090:9090 -v /var/www:/srv webfs:1.21
+docker run -e WEBFSD_PORT=9090 -e WEBFSD_HOSTING_DIR=/var/www -d -p 9090:9090 -v ~:/var/www  webfsd:1
+.21
 ```
 
 ## Project Structure
